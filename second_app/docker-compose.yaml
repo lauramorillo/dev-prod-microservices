@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  second-app-service:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/code
+    environment:
+      NODE_ENV: 'development'
+    command: yarn run dev
+    depends_on:
+      - first-app-service
+
+  first-app-service:
+    image: ajnasz/api-mock
+    volumes:
+      - ./mock/first-app-service/api.md:/usr/src/app/api.md
