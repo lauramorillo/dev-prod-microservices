@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "node_modules/.bin/nodemon -e html,js,json --inspect ./bin/www",
+    "test": "node_modules/.bin/jasmine JASMINE_CONFIG_PATH=spec/unit/support/jasmine.json",
+    "test-e2e": "node_modules/.bin/jasmine JASMINE_CONFIG_PATH=spec/e2e/support/jasmine.json"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -12,6 +15,11 @@
     "express": "~4.15.5",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
+    "request": "^2.83.0",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "jasmine": "^3.0.0",
+    "nodemon": "^1.15.0"
   }
 }
