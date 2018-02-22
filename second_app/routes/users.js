@@ -10,7 +10,7 @@ var users = function(usersProvider) {
         res.sendStatus(500)
         return
       }
-      res.send('respond with a resource');
+      res.send(body);
     })
   });
   return router
