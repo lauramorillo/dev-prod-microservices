@@ -1,13 +1,13 @@
 apiVersion: v1
-  kind: Service
-  metadata:
-    name: first-app-service
-    labels:
-      run: first-app-service
-  spec:
-    ports:
-      - port: 3000
-        targetPort: 3000
-    selector:
-      run: first-app
+kind: Service
+metadata:
+  name: first-app-service
+  labels:
+    run: first-app-service
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    run: first-app
 type: ClusterIP
