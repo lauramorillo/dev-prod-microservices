@@ -10,4 +10,4 @@ spec:
       targetPort: 3000
   selector:
     run: first-app
-type: ClusterIP
+  type: ClusterIP
