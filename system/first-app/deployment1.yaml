@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: first-app-controller
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: first-app-service
+    spec:
+      containers:
+      - name: gcr.io/PROJECT_ID/first_app:v1
+        image: first_app:v0
