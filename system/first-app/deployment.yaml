@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: first-app-controller
+  name: first-app-deployment
 spec:
   replicas: 2
   template:
