@@ -7,8 +7,8 @@ spec:
   template:
     metadata:
       labels:
-        run: first-app-service
+        run: first-app
     spec:
       containers:
-      - name: gcr.io/PROJECT_ID/first_app:v1
-        image: first_app:v0
+      - name: first-app
+        image: gcr.io/PROJECT_ID/first_app:v0
