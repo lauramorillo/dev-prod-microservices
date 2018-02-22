@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+ first-app-service:
+   build: ./first_app
+   ports:
+     - "3010:3000"
+   volumes:
+     - ./first_app:/code
+   environment:
+     NODE_ENV: 'development'
+   command: yarn run dev
+
+ second-app-service:
+   build: ./second_app
+   ports:
+     - "3020:3000"
+   volumes:
+     - ./second_app:/code
+   environment:
+     NODE_ENV: 'development'
+   command: yarn run dev
+   depends_on:
+     - first-app-service
+
