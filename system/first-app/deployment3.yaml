@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: first-app-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: first-app
+    spec:
+      containers:
+      - name: first-app
+        image: gcr.io/PROJECT_ID/first_app:v1
+        args: 
+        - /bin/sh
+        - -c
+        - touch /code/healthy; sleep 30; touch /code/ready; yarn run start
+        livenessProbe:
+          exec:
+            command:
+            - cat
+            - /code/healthy
+          initialDelaySeconds: 5
+          periodSeconds: 15
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /code/ready
+          initialDelaySeconds: 5
+          periodSeconds: 15
